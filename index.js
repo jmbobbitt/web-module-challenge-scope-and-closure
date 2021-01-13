@@ -87,9 +87,16 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, num){
+  const finalScore = { 'Home': 0, 'Away': 0}
+for (let i=0; i < num; i++) {
+  finalScore.Home += inning();
+  finalScore.Away += inning();
 }
+return finalScore;
+}
+
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -149,18 +156,18 @@ function scoreboard(/* CODE HERE */) {
 
 
 
-/* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
-  //console.log('its working');
-  return 'bar';
-}
-export default{
-  foo,
-  processFirstItem,
-  counter1,
-  counter2,
-  inning,
-  finalScore,
-  getInningScore,
-  scoreboard,
-}
+// /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
+// function foo(){
+//   //console.log('its working');
+//   return 'bar';
+// }
+// export default{
+//   foo,
+//   processFirstItem,
+//   counter1,
+//   counter2,
+//   inning,
+//   finalScore,
+//   getInningScore,
+//   scoreboard,
+// }
