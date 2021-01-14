@@ -88,7 +88,7 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inning, num){
-  const finalScore = { 'Home': 0, 'Away': 0}
+    const finalScore = { 'Home': 0, 'Away': 0}
 for (let i=0; i < num; i++) {
   finalScore.Home += inning();
   finalScore.Away += inning();
@@ -103,9 +103,17 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning, inningPlayed) {
+  let overallScore = {Home: 0, Away:0}; // set the variable to equal home/away score values
+   for (let i = 0; i < inningPlayed; i++) {
+    overallScore.Home += inning(); 
+    overallScore.Away =+ inning(); 
+
+    console.log(`Inning ${i+1}: Away ${overallScore.Away} - Home ${overallScore.Home}`);
+    }
+  return overallScore;
 }
+console.log(getInningScore(inning, 4));
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -149,25 +157,43 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+ function scoreboard(getInningScoreCB, inningCB, inningPlayed) { // innningsCB = the score, innsPlayed = number of innings
+
+  for(let i = 0; i < inningPlayed; i++) {
+    let currentScore = {Home: 0, Away:0};
+      currentScore = getInningScoreCB(inningCB); // this is invoking is giving back an object
+      Home += currentScore.home;
+      Away += currentScore.away;
+      // score +=current.Score// another way
+      // console.log(inningPlayed);  
+      console.log (`Inning ${i+1}: Away ${currentScore.away} - Home ${currentScore.home}`); 
+      {
+     if(Home === Away){
+        return `This game will require extra innings: Away ${Away} - Home ${Home}`;
+    } else{
+      return `Final Score: Away ${Away} - Home ${Home}`;
+    }
+  } 
+} console.log
+ }
+
+console.log(scoreboard(getInningScore, 9))
+
+
+
+
+/* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
+function foo(){
+  //console.log('its working');
+  return 'bar';
 }
-
-
-
-
-// /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-// function foo(){
-//   //console.log('its working');
-//   return 'bar';
-// }
-// export default{
-//   foo,
-//   processFirstItem,
-//   counter1,
-//   counter2,
-//   inning,
-//   finalScore,
-//   getInningScore,
-//   scoreboard,
-// }
+export default{
+  foo,
+  processFirstItem,
+  counter1,
+  counter2,
+  inning,
+  finalScore,
+  getInningScore,
+  scoreboard,
+ }
